@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="format-detection" content="telephone=no" />
+        <title>Test Native Api</title>
+        <style>body {
+                    background-color: #eeeeee;
+               }
+        </style>
+        <script type="text/javascript" src="./DANativeApi.js"></script>
+    </head>
+    <body>
+        <div>
+            <a href="javascript:void(0);" onclick="chooseContact()">选择联系人</a>
+            <div id="contactInfo"></div>
+        </div>
+        <script>
+        function chooseContact() {
+            var a = 100860;
+            DANativeApi.choosePhoneContact({
+                                           completion: function(res) {
+                                           contactInfo.innerHTML = JSON.stringify(res.data) + '---拼接局部变量----' + a;
+                                           }
+    
+                                           });
+        }
+        </script>
+    </body>
+</html>
